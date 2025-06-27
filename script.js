@@ -5,43 +5,43 @@ document.addEventListener('DOMContentLoaded', () => {
         switches: {
             displayText: "Switches",
             options: [
-                { text: "Core Huawei", url: "Switches.html" },
-                { text: "Huawei con interfaz grafica", url: "Switches.html" },
-                { text: "Huawei sin interfaz grafica", url: "" },
-                { text: "Cisco", url: "" },
-                { text: "Mikrotik", url: "" },
-                { text: "HPE Office", url: "" },
-                { text: "Allied Telesis", url: "" }
+                { text: "Core Huawei", url: "CoreHuawei.html" },
+                { text: "Huawei con interfaz grafica", url: "HuaweiSI.html" },
+                { text: "Huawei sin interfaz grafica", url: "HuaweiCI.html" },
+                { text: "Cisco", url: "Cisco.html" },
+                { text: "Mikrotik", url: "Mikrotik.html" },
+                { text: "HPE Office", url: "HPEOffice.html" },
+                { text: "Allied Telesis", url: "AlliedTelesis.html" }
             ]
         },
         PFSense: {
             displayText: "PFSense",
             options: [
-                { text: "System", url: "" },
-                { text: "Interface", url: "" },
-                { text: "Firewall", url: "" },
-                { text: "Service", url: "" },
-                { text: "VPN", url: "" },
-                { text: "Status", url: "" },
-                { text: "Diagnostics", url: "" }
+                { text: "System", url: "PFSystem.html" },
+                { text: "Interface", url: "PFInterface.html" },
+                { text: "Firewall", url: "PFFirewall.html" },
+                { text: "Service", url: "PFService.html" },
+                { text: "VPN", url: "PFVpn.html" },
+                { text: "Status", url: "PFStatus.html" },
+                { text: "Diagnostics", url: "PFDiagnostics.html" }
             ]
         },
         WiFi: {
             displayText: "WiFi",
             options: [
-                { text: "EzMaster", url: "" },
-                { text: "Huawei WiFi", url: "" }
+                { text: "EzMaster", url: "EZmaster.html" },
+                { text: "Huawei WiFi", url: "HWWiFi.html" }
             ]
         },
         Zabbix: {
             displayText: "Zabbix",
             options: [
-                { text: "Monitoring", url: "" },
-                { text: "Service", url: "" },
-                { text: "Inventory", url: "" },
-                { text: "Reports", url: "" },
-                { text: "Configuration", url: "" },
-                { text: "Administration", url: ""}
+                { text: "Monitoring", url: "ZBMonitoring.html" },
+                { text: "Service", url: "ZBService.html" },
+                { text: "Inventory", url: "ZBInventory.html" },
+                { text: "Reports", url: "ZBReports.html" },
+                { text: "Configuration", url: "ZBConfiguration.html" },
+                { text: "Administration", url: "ZBAdministration.html"}
             ]
         }
     };
