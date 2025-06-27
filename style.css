@@ -1,0 +1,158 @@
+/* --- ESTILOS GENERALES Y FONDO --- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0a0a1a; /* Color oscuro por si la imagen no carga */
+    /* <-- CAMBIO: Se usa url() que es el estándar para imágenes de fondo */
+    background-image: url("img/FondoPag.png"); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    color: white;
+}
+
+/* --- CABECERA --- */
+header {
+    /* <-- CAMBIO: Se usa url() */
+    background-image: url("img/Fondo.png");
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    font-family: 'Times New Roman', Times, serif; 
+}
+
+/* <-- CAMBIO: La clase '.usuario' ahora es '.extra' */
+.logo, .extra { 
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* <-- CAMBIO: La clase '.titulo-principal' ahora es '.titulo' */
+.titulo { 
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.separador {
+    border: none;
+    height: 2px;
+    background-color: red;
+    margin: 0;
+}
+
+/* --- CONTENIDO PRINCIPAL Y MENÚS --- */
+/* <-- CAMBIO: La clase '.container' ahora es '.contenedor' */
+.contenedor { 
+    padding: 40px 50px;
+}
+
+/* <-- CAMBIO: Se aplican estilos a las nuevas clases de contenedor */
+.desplegable-principal, .desplegable-secundario { 
+    position: fixed;
+    width: 45%;
+    margin-bottom: 20px;
+}
+
+.desplegable-secundario {
+    right: 20px;
+}
+
+/* <-- CAMBIO: Se agrupan los nuevos botones para aplicar el mismo estilo */
+.desplegable-primario, .desplegable-sec {
+    width: 100%;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+/* <-- CAMBIO: Se apunta al span dentro de los nuevos botones */
+.desplegable-primario span:first-child, .desplegable-sec span:first-child {
+    color: #a7a7ff; 
+    font-weight: bold;
+}
+
+/* <-- CAMBIO: La clase '.arrow' ahora es '.flecha' */
+.flecha {
+    color: #a7a7ff; 
+    font-size: 1em;
+    transition: transform 0.2s; 
+}
+
+/* <-- CAMBIO: Se aplica el giro a la nueva clase '.flecha' */
+.open .flecha {
+    transform: rotate(180deg);
+}
+
+/* <-- CAMBIO: Se agrupan los nuevos menús desplegables */
+.menu-desplegable, .menu-desplegable-secundario {
+    display: none; 
+    position: absolute;
+    width: 100%;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 10px;
+    margin-top: 5px;
+    z-index: 100;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* <-- CAMBIO: Se muestra el menú al añadir la clase 'show' */
+.menu-desplegable.show, .menu-desplegable-secundario.show {
+    display: block;
+}
+
+/* <-- CAMBIO: Estilos para las opciones dentro de los nuevos menús */
+.menu-desplegable a, .menu-desplegable-secundario a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+}
+
+.menu-desplegable a:hover, .menu-desplegable-secundario a:hover {
+    background-color: #575757;
+}
+
+.disabled-option {
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* --- ESTILOS PARA EL CONTENEDOR Y BOTÓN DE ACCIÓN --- */
+/* <-- CAMBIO: El id '#result-container' ahora es '#resultado-contenedor' */
+#resultado-contenedor { 
+    margin-top: 150px; 
+    text-align: center;
+}
+
+.action-button {
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-block;
+}
+
+.action-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
