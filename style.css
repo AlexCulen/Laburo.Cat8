@@ -56,6 +56,7 @@ header {
     position: fixed;
     width: 45%;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .desplegable-secundario {
@@ -135,7 +136,7 @@ header {
 /* --- ESTILOS PARA EL CONTENEDOR Y BOTÓN DE ACCIÓN --- */
 /* <-- CAMBIO: El id '#result-container' ahora es '#resultado-contenedor' */
 #resultado-contenedor { 
-    margin-top: 150px; 
+    margin-top: 250px; 
     text-align: center;
 }
 
