@@ -3,16 +3,17 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #0a0a1a; /* Color oscuro por si la imagen no carga */
-    background-image: url("img/FondoPag.png"); 
+    background-image: url("../img/FondoPag.png"); 
+    background-color: rgb(0,0,0,0.9);
     background-size: cover;
     background-position: center;
     background-attachment: fixed; 
-    color: white;
+    color: #2e6ffc;
 }
 
 /* --- CABECERA --- */
 header {
-    background-image: url("img/Fondo.png");
+    background-image: url("../img/Fondo.png");
     background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
@@ -36,9 +37,13 @@ header {
 
 .separador {
     border: none;
-    height: 2px;
-    background-color: red;
+    height: 5px;
+    background-color: #2e6ffc;
     margin: 0;
+}
+
+.separador:hover {
+    background-color: #333;
 }
 
 /* --- CONTENIDO PRINCIPAL Y MENÚS --- */
