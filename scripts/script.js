@@ -6,42 +6,55 @@ document.addEventListener('DOMContentLoaded', () => {
             displayText: "Switches",
             options: [
                 { text: "Core Huawei", url: "CoreHuawei.html" },
-                { text: "Huawei con interfaz grafica", url: "HuaweiSI.html" },
-                { text: "Huawei sin interfaz grafica", url: "HuaweiCI.html" },
-                { text: "Cisco", url: "Cisco.html" },
-                { text: "Mikrotik", url: "Mikrotik.html" },
-                { text: "HPE Office", url: "HPEOffice.html" },
-                { text: "Allied Telesis", url: "AlliedTelesis.html" }
+                { text: "Huawei con interfaz grafica", url: "" },
+                { text: "Huawei sin interfaz grafica", url: "" },
+                { text: "Cisco", url: "" },
+                { text: "Mikrotik", url: "" },
+                { text: "HPE Office", url: "" },
+                { text: "Allied Telesis", url: "" }
             ]
         },
         PFSense: {
             displayText: "PFSense",
             options: [
-                { text: "System", url: "PFSystem.html" },
-                { text: "Interface", url: "PFInterface.html" },
-                { text: "Firewall", url: "PFFirewall.html" },
-                { text: "Service", url: "PFService.html" },
-                { text: "VPN", url: "PFVpn.html" },
-                { text: "Status", url: "PFStatus.html" },
-                { text: "Diagnostics", url: "PFDiagnostics.html" }
+                { text: "System", url: "" },
+                { text: "Interface", url: "" },
+                { text: "Firewall", url: "" },
+                { text: "Service", url: "" },
+                { text: "VPN", url: "" },
+                { text: "Status", url: "" },
+                { text: "Diagnostics", url: "" }
+            ]
+        },
+        FortiNet: {
+            displayText: "FortiNet",
+            options: [
+                { text: "Network", url: "" },
+                { text: "System", url: "" },
+                { text: "Policy & Objects", url: "" },
+                { text: "Security Profiles", url: "" },
+                { text: "VPN", url: "" },
+                { text: "User & Device", url: "" },
+                { text: "Log & Report", url: "" },
+                { text: "Monitor", url: "" }
             ]
         },
         WiFi: {
             displayText: "WiFi",
             options: [
-                { text: "EzMaster", url: "EZmaster.html" },
-                { text: "Huawei WiFi", url: "HWWiFi.html" }
+                { text: "EzMaster", url: "" },
+                { text: "Huawei WiFi", url: "" }
             ]
         },
         Zabbix: {
             displayText: "Zabbix",
             options: [
-                { text: "Monitoring", url: "ZBMonitoring.html" },
-                { text: "Service", url: "ZBService.html" },
-                { text: "Inventory", url: "ZBInventory.html" },
-                { text: "Reports", url: "ZBReports.html" },
-                { text: "Configuration", url: "ZBConfiguration.html" },
-                { text: "Administration", url: "ZBAdministration.html"}
+                { text: "Monitoring", url: "" },
+                { text: "Service", url: "" },
+                { text: "Inventory", url: "" },
+                { text: "Reports", url: "" },
+                { text: "Configuration", url: "" },
+                { text: "Administration", url: ""}
             ]
         }
     };

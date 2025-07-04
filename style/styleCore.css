@@ -1,9 +1,96 @@
 body, html {
     width: 100%;
     height: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 22px;
+}
+
+p {
+    text-align: justify;
+    margin: 5px;
+    padding: 5px;
+}
+
+.separador {
+    border: none;
+    height: 2px;
+    background-color: #7a0000;
+    margin: 0;
 }
 
 body {
-    background: radial-gradient(circle, rgb(10 60 202) 0%, #042e52 100%);
+    background: radial-gradient(circle, rgb(10, 60, 202) 0%, #042e52 100%);
+}
+
+.encabezado {
+    height: 50px;
+    border: 5px solid rgba(245, 0, 0, 0.664);
+    border-radius: 20px;
+    background: linear-gradient(rgb(50,0,10) 0%, #550020 100%);
+}
+
+.titulo {
+    text-align: center;
+    margin: 5px;
+    color: rgba(245, 0, 0, 0.664);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.conectar {
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.conectado-Sw {
+    text-align: center;
+}
+
+.conectar img{
+    align-items: center;
+    justify-content: center;
+    border: 2px solid red;
+    max-width: none;
+    max-height: none;
+    margin: 0 auto;
+}
+
+.cableConsola {
+    width: 250px;
+    height: 250px;
+}
+
+.Switch {
+    width: 400px;
+}
+
+.administradorDispo {
+    height: 400px;
+}
+
+.config-inicial {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 22px;
+}
+
+h2 {
+    text-decoration:underline rgb(58, 0, 151);
+}
+
+span {
+    color: #550020;
+}
+
+.primeras-config img {
+    width: 70%;
+}
+
+.access img {
+    width: 70%;
+
 }
 
