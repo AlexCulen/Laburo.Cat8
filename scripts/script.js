@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             displayText: "Switches",
             options: [
                 { text: "Core Huawei", url: "CoreHuawei.html" },
-                { text: "Huawei con interfaz grafica", url: "" },
+                { text: "Huawei con interfaz grafica", url: "HuaweiIG.html" },
                 { text: "Huawei sin interfaz grafica", url: "" },
                 { text: "Cisco", url: "" },
                 { text: "Mikrotik", url: "" },
