@@ -1,0 +1,170 @@
+* {
+    
+}
+
+body {
+    background: radial-gradient(circle, rgba(69, 11, 117, 0.95) 20%, rgba(7, 82, 85, 0.95) 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.boton_menu {
+    position: absolute;
+    text-align: left;
+
+}
+
+.boton_menu:hover {
+    color: #290ec2;
+}
+
+button {
+    padding: 0;
+    height: 30px;
+    width: 80px;
+    background: none;
+    border: none;
+    transition: border 0.2s ease-in-out;
+    font-size: 20px;
+}
+
+button:hover {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.menu-lateral {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: -600px;
+    width: 400px;
+    height: 100vh;
+    background-size: contain;
+    background-position: center;
+    background: radial-gradient(circle, rgba(70, 10, 119, 0.95) 20%, rgba(7, 82, 85, 0.95) 100%);
+    color: #fff;
+    padding: 20px;
+    transition: left 0.5s ease-in-out;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.menu-lateral li {
+    margin: 15px 0;
+}
+
+.menu-lateral a {
+    color: #3e0464;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+    font-size: 25px;
+    margin: 20px;
+}
+
+.menu-lateral a:hover {
+    text-decoration: underline;
+    font-size: 30px;
+    color:#814f4f;
+}
+
+#boton_menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #00000075 transparent;
+    color: #061d83b2;
+
+}
+
+#close-btn {
+    background: none;
+    border: none;
+    color: #920dff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.titulo {
+    color: white;
+    justify-content: center;
+    text-align: center;
+    margin: 2px;
+}
+
+.conectar {
+    text-align: center;
+    color: white;
+}
+
+.conectar img {
+    width: 50%;
+    height: 50%;
+}
+
+.cableEthernet img {
+    justify-content: center;
+    width: 10px;
+    height: 10px;
+    max-height: none;
+    text-align: center;
+    background: none;
+}
+
+span {
+    background: none;
+    color: red;
+}
+
+.aclaracion {
+    color: #269dff;
+}
+
+.separador {
+    border: none;
+    height: 2px;
+    background-color:rgba(4, 49, 51, 0.95);
+    margin: 0;
+}
+
+.PrimerPantalla {
+    text-align: center;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.primerPantalla {
+    width: 60%;
+    height: 60%;
+}
+
+.cambiarIP {
+    text-align: center;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.config_cambiar_ip img {
+    width: 60%;
+    height: 60%;
+    border: solid 2px black;
+}
+
+.crearVLANS{
+    text-align: center;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.config_VLAN img {
+    width: 60%;
+    height: 60%;
+    border: solid 2px black;
+}
+

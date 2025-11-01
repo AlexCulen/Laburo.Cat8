@@ -1,0 +1,150 @@
+/* --- ESTILOS GENERALES Y FONDO --- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0a0a1a; /* Color oscuro por si la imagen no carga */
+    background-image: url("../img/FondoPag.png"); 
+    background-color: rgb(0,0,0,0.9);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    color: #2e6ffc;
+}
+
+/* --- CABECERA --- */
+header {
+    background-image: url("../img/Fondo.png");
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    font-family: 'Times New Roman', Times, serif; 
+}
+
+.logo, .extra { 
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.titulo { 
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.separador {
+    border: none;
+    height: 5px;
+    background-color: #2e6ffc;
+    margin: 0;
+}
+
+.separador:hover {
+    background-color: #333;
+}
+
+/* --- CONTENIDO PRINCIPAL Y MENÚS --- */
+.contenedor { 
+    padding: 40px 50px;
+}
+
+.desplegable-principal, .desplegable-secundario { 
+    position: fixed;
+    width: 45%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.desplegable-secundario {
+    right: 20px;
+}
+
+.desplegable-primario, .desplegable-sec {
+    width: 100%;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.desplegable-primario span:first-child, .desplegable-sec span:first-child {
+    color: #a7a7ff; 
+    font-weight: bold;
+}
+
+.flecha {
+    color: #a7a7ff; 
+    font-size: 1em;
+    transition: transform 0.2s; 
+}
+
+.open .flecha {
+    transform: rotate(180deg);
+}
+
+.menu-desplegable, .menu-desplegable-secundario {
+    display: none; 
+    position: absolute;
+    width: 100%;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 10px;
+    margin-top: 5px;
+    z-index: 100;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.menu-desplegable.show, .menu-desplegable-secundario.show {
+    display: block;
+}
+
+.menu-desplegable a, .menu-desplegable-secundario a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+}
+
+.menu-desplegable a:hover, .menu-desplegable-secundario a:hover {
+    background-color: #575757;
+}
+
+.disabled-option {
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* --- ESTILOS PARA EL CONTENEDOR Y BOTÓN DE ACCIÓN --- */
+#resultado-contenedor { 
+    margin-top: 250px; 
+    text-align: center;
+}
+
+.action-button {
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-block;
+}
+
+.action-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}

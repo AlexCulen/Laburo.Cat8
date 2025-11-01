@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huawei Web</title>
+    <link rel="stylesheet" href="style/styleHWGrafico.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="boton_menu">
+            <button id="boton_menu">☰Menú</button>
+            <div id="menu" class="menu-lateral">
+                <button id="close-btn">✖</button>
+                <ul>
+                    <li><a href="#Conexion">Conexion y acceso</a></li>
+                    <li><a href="#Config-Ini">Configuracion Inicial</a></li>
+                    <li><a href="#Access">Poner Puerto en Access</a></li>
+                    <li><a href="#Trunk">Poner Puerto en Trunk</a></li>
+                    <li><a href="#LAG">Realizar Lag con puertos</a></li>
+                </ul>
+            </div>
+        </div>
+        <h1 class="titulo">Huawei con interfaz grafica</h1>
+    </header>
+
+    <div id="Conexion" class="conexion-inicial" id="conexion-inicial">
+        <div class="conectar">
+            <h2>Conexion y acceso al Switch</h2>
+            <p>Para poder acceder al Switch debemos conectar el cable de red al puerto que dice ETH que se encuentra en el frente del Switch</p>
+            <img class="cableEthernet" src="img/HWG/PuertoETH.png" alt="">
+            <p>Una vez conectado el cable, debemos asignarle una ip a la pc del rango <span>192.168.1.2</span>- <span>192.168.1.200</span>, luego ingresamos desde el navegador a la ip <span>192.168.1.253</span>, <span class="aclaracion">algunos switches pueden usar la ip 192.168.1.1</span></p>
+            <p>Una vez ingresada la ip en el navegador aparecera una pagina que indica que la conexion no es privada, le tenes que dar a <span>opciones avanzadas</span> y darle a <span>Continuar a 192.168.1.253 (no es seguro)</span></p>
+            <img class="Switch" src="img/HWG/Acceso.png" alt="">
+            <p>Una vez ingresado a la pagina te aparecera una pantalla para crear el usuario de administrador del switch, el mismo te solicitara el nombre del <span>usuario</span> la <span>contraseña</span> confirmar la contraseña, y la contraseña para acceder desde la consola. Luego le damos a <span>Registrar</span>.</p>
+            <img class="" src="img/HWG/UsuarioNuevo.png" alt="">
+            <p>Luego nos pedira que ingresemos el usuario y la contraseña creada anteriormente.</p>
+            <img class="" src="img/HWG/AccesoAlSW.png" alt="">
+            <p>Una vez ingresado al sw ya podemos comenzar con la configuracion incial.</p>
+        </div>
+    </div>
+
+    <hr class="separador">
+    <hr class="separador">
+    <hr class="separador">
+    
+    <div id="" class="">
+        <div class="PrimerPantalla" id="PrimerPantalla">
+            <h2>Primer pantalla dentro del switch</h2>
+            <p>Una vez ingresado al Switch, veremos esta imagen</p>
+            <img class="primerPantalla" src="img/HWG/Primer Pantalla.png" alt="">
+            <p>Lo primero que debemos hacer es desabilitar la opcion de que busque y actulice el SW automaticamente, para eso en la parte superior que aparece en naranja debemos tocar en la opcion que dice <span>Never remind again</span>. Esto nos permite poder manejar nosotros cuando queremos que se actualice al hacerlo manualmente.</p>
+        </div>
+    </div>
+    
+    <hr class="separador">
+    <hr class="separador">
+    <hr class="separador">
+    
+    <div id="cambiarIP" class="cambiarIP">
+        <h2>Cambiar IP de acceso</h2>
+        <div class="config_cambiar_ip">
+            <ul><p>Lo primero que debemos hacer es ingresar en la opcion de <span>Configuration</span> que se encuentra en las opciones de arriba de todo, luego debemos seleccionar en el listado de la izquierda la opcion de <span>Basic Services</span>, dentro de esta opcion encontraremos otras opciones mas, debemos tocar la que dice <span>Interface Settings</span>. Luego debemos irnos a la ventana que dice <span>Manage Interface Settings</span>.</p></ul>
+            <img class="cambiarIP_img" src="img/HWG/CambiarIP.png" alt="">
+            <ul><p>En esta ventana deberemos cambiar el casillero de <span>IP address</span> por la que tendra el Switch, en caso de necesitarlo debera cambiar la casilla de <span>Mask</span> esta es la mascara de red. <span class="aclaracion">Tener en cuenta que al cambiar la ip y darle a <span>Apply</span> perderas el acceso al switch hasta que le asignes a la computadora, desde la que accedes, una ip del mismo rango que asignaste al switch e ingreses con la ip en cuestion por el navegador</span>.</p></ul>
+            <ul>Una vez terminada la config y reingresado al switch debemos guardar la configuracion a fin de que si necesitamos reiniciarlo no pierda lo realizado hasta el momento. Para esto debemos seleccionar el boton de arriba a la derecha que dice <span>Save</span></ul>
+            <img src="img/HWG/GuardarConfiguracion.png" alt="" class="guardarConfig">
+            <ul><p>Se nos abrira una ventana para confirmar si queremos guardar la configuracion debemos tocar el boton que dice <span>Ok</span></p></ul>
+            <img class="botonConfirmar" src="img/HWG/ConfirmarGuardado.png" alt="">
+        </div>
+    </div>
+
+    <hr class="separador">
+    <hr class="separador">
+    <hr class="separador">
+
+    <div class="crearVLANS">
+        <h2 id="CrearVLAN">Crear VLAN's</h2>
+        <div class="config_VLAN">
+            <ul><p>Lo primero que debemos hacer es ingresar en la opcion de <span>Configuration</span> que se encuentra en las opciones de arriba de todo, luego debemos seleccionar en el listado de la izquierda la opcion de <span>Basic Services</span>, dentro de esta opcion encontraremos otras opciones mas, debemos tocar la que dice <span>VLAN</span>.</p></ul>
+            <img src="img/HWG/CrearVLAN.png" alt="">
+            <ul><p>Luego debemos darle al boton de <span>Create</span> se nos abrira otra ventana para cargar los datos de la VLAN</p></ul>
+            <img src="img/HWG/CrearVLAN2.png" alt="">
+            <ul>
+                <ul>En <span>VLAN ID</span> debemos ingresar el numero que tendra la vlan. Ejemplo vlan 2</ul>
+                <ul>En <span>Description</span> debemos colocar un idicador de la vlan. Como VLAN Servidores</ul>
+                <ul>La opcion de <span>MAC address learning</span> se deja activa debido a que esto controla la capacidad del switch para aprender automáticamente las direcciones MAC de los dispositivos conectados a sus puertos.</ul>
+                <ul>La casilla de <span>Create VLANIF</span> se tilda si el switch estara como router dado que al configurar esta opcion el switch crearia una tabla de ruteos para la interfaz que configures.</ul>
+                <ul>Una vez completada toda las opciones necesarias, seleccionamos el boton <span>Ok</span>.</ul>
+            </ul>
+            <ul><p>Este prceso lo debemos repetir con cada una de las VLAN's que tenga</p></ul>
+        </div>
+    </div>
+
+    <hr class="separador">
+    <hr class="separador">
+    <hr class="separador">
+
+    <div id="" class="">
+        <h2></h2>
+        <div class="">
+            
+        </div>
+    </div>
+
+    <hr class="separador">
+    <hr class="separador">
+    <hr class="separador">
+
+    <script src="scripts/scriptHWGrafico.js"></script>
+</body>
+</html>
