@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manual Huawei</title>
+    <link rel="stylesheet" href="style/styleCore.css" />
+</head>
+<body>
+    <header class="navbar">
+        <h1 class="titulo">Manual Huawei</h1>
+        <nav class="menu">
+            <button id="menu-btn" class="menu-btn">☰</button>
+            <ul id="menu-list" class="menu-list">
+                <li><a href="#Conexion">Conexión</a></li>
+                <li><a href="#Config-Ini">Config. Inicial</a></li>
+                <li><a href="#Access">Access</a></li>
+                <li><a href="#Trunk">Trunk</a></li>
+                <li><a href="#LAG">LAG</a></li>
+            </ul>
+        </nav>
+        <button id="toggleTheme" class="theme-btn" title="Cambiar tema">🌗</button>
+    </header>
+
+    <main>
+        <section id="Conexion">
+            <h2>Conexión y acceso al Switch</h2>
+            <p> Lo primero que necesitamos es el cable consola que vemos a continuación.</p>
+            <img src="img/CableConsola.jpg" alt="Cable Consola">
+            <p>Conectarlo en el puerto del Switch que dice console.</p>
+            <img class="Switch" src="img/PuertoConsola.png" alt="">
+            <p>Luego en la computadora ingrasar a "Administrador de dispositivos" y dirigirse a la parte de <span>"Puertos (COM y LPT)"</span>, fijarse el puerto COM que se habilito.</p>
+            <img class="administradorDispo" src="img/AdministradorDispositivos.png" alt="">
+            <p>Luego ingresar a Putty y seleccionar la opcion de Serial e ingresar el COM que figuraba en la parte anterior.</p>
+            <img class="putty" src="../img/Putty.png" alt="">
+            <p>Una vez ingresando te va a solicitar que crees una contraseña para acceder, luego de ingresar la contraseña dos veces ya estaras dentro del Switch.</p>
+
+        </section>
+
+        <section id="Config-Ini">
+            <h2>Configuración inicial</h2>
+            <p>Lo primero que debemos hacer es acceder al modo configuracion del Switch que se hace escribiendo el comando <span>"system-view"</span>, sabremos que estamos dentro de la configuracion ya que anteriormente veremos en la interfaz el nombre entre <span>"&lt; &gt;"</span>y ahora estara entre <span>"[ ]"</span>.</p>
+            <img src="img/ModoConfig.png" alt="Modo Configuración">
+            <p>Luego debemos asignarle un nombre al Switch, para eso usaremos el comando <span>"sysname [Nombre]"</span>.</p>
+            <img class="nombreSW" src="img/nombreSW.png" alt="">
+            <p>Luego debemos configurar la hora, para eso primero debemos salir del modo config con el comando <span>"quit"</span>, luego usaremos los comandos <span>"clock timezone BSAS minus 03:00:00"</span> y <span>"clock datetime [HH:MM:SS AÑO-MES-DIA]"</span>.</p>
+            <img class="hora" src="img/hora.png" alt=""> 
+            <p>Crearemos un usuario local para acceder al Switch, para esto primero accederemos al modo config con el comando <span>"system-view"</span>, luego ingresaremos al modo aaa con el comando <span>"aaa"</span>, luego usaremos el comando <span>"local-user [Nombre usuario[ password irreversible-cipher [contraseña]</span>.</p>
+            <img class="usuario" src="img/usuario.png" alt=""> 
+            <p>Luego le asignamos los privilegios al usuario, si este es para administrar el Switch debemos ingresar el comando <span>"local-user [Nombre usuario] privilege level 3"</span>.</p>
+            <img src="img/privilegio.png" alt="">
+            <p>Luego tenemos que indicar los protocolos desde los que se puede conectar el usuario mencionado, para eso debemos ingresar el comando <span>"local-user [Nombre usuario] service-type http"</span>.</p>
+            <img src="img/servicio.png" alt="">
+            <p>Luego debemos habilitar la interfaz web para poder acceder desde el navegador, para eso primero debemos salir de aaa con el comando <span>"quit"</span> luego ingresamos el comando <span>"web-manager enable port [Numero de puerto]"</span>, esto habilira la interfaz grafica. Luego debemos usar el comando <span>"web-manager http forward enable"</span>, esto indica el tipo de acceso. Luego usaremos el comando <span>"web-manager server-source all-interface"</span>, luego regresamos al inicio con el comando <span>"quit"</span> hasta ver que ya no estamos en el modo configuracion y ahi guardamos la configuracion con el comando <span>"save"</span> nos aparecera un mensaje e ingresamos <span>"y"</span>.</p>
+            <img class="webManager" src="img/WebM.png" alt="">
+            <p></p>
+            <img class="webManager" src="img/WebM2.png" alt="">
+            <p></p>
+            <img class="webManager" src="img/WebM3.png" alt="">
+            <p></p>
+            <img class="save" src="img/Save.png" alt="">
+            <p>Una vez hecho todo esto podremos conectar un cable ethernet a un puerto e ingresar a la interfaz grafica con la ip que viene por default en el Switch.</p>
+            <p>Para realizar esto debemos asignarle a la pc una ip del mismo rango que el Switch, por ejemplo si el Switch tiene una ip de acceso <span>192.168.1.253</span> debemos asignarnos una ip del mismo rango como la 192.168.1.100 y luego con el cable conectado al Switch ingresamos en el navegador  <span>"https://192.168.1.253/"</span>.</p>
+            <p>En caso de que el Switch no traiga esta ip deberemos asignarle una por linea de comandos, para esto primero debemos crear la VLAN que sera la maestra.</p>
+            <p>Primero debemos ingresar al modo configuracion con el comando <span>"system-view"</span>, luego ingresamos el comando <span>"vlan [Numero de la vlan]"</span> le asignamos un nombre a la vlan con el comando <span>"description [Nombre de la VLAN]"</span> luego salimos con el comando <span>"quit"</span>.</p>
+            <img src="img/ip.png" alt="">
+            <p>Luego de esto podremos acceder a la interfaz web del Switch por medio de esa IP.</p>
+        </section>
+
+        <section id="Access">
+            <h2>Poner puerto en Access</h2>
+            <p>Un puerto en modo Access permite conectar un solo dispositivo o VLAN.</p>
+            <p>Para configurarlo debemos ingresar a al Switch y tocar la opcion de <span>Configuration</span> que aparece arriba.</p>
+            <img src="img/configAcc.png" alt="Puerto Access">
+            <p>Luego debemos seleccionar la opcion de <span>"Basic Services"</span> en el lado izquierdo de la pagina, segunda opcion.</p>
+            <img src="img/configAcc2.png" alt="">
+            <p>Luego debemos elegir la primera opcion que aparece al desplegarse la opcion anterior y veremos todos los puertos que tiene el Switch y unos botones en la parte superior, de estos debemos seleccionar el que dice <span>"Customized"</span> para asi poder configurar el puerto.</p>
+            <img src="img/configAcc3.png" alt="">
+            <p>Una vez ingresado a dicha opcion seleccionamos el o los puertos que queremos configurar en access y nos apareceran una opciones en la pantalla mas abajo.</p>
+            <p>Debemos verificar que la casilla que dice <span>"Enable link aggregation"</span> se encuentre destildada o tildada dependiendo si queremos que los puertos seleccionados funcionen como uno solo o como puertos individuales (la configuracion de puertos en conjunto esta en otro apartado).</p>
+            <p>La segunda opcion es <span>"Interface Status"</span> esto configura al puerto como apagado o prendido.</p>
+            <p>Luego tenemos la opcion de <span>"Work Mode"</span> esto indicara en que capa debe estar el puerto, en capa dos si esta como Switch o en capa 3 en caso de estar como Router.</p>
+            <p>Luego tenemos la opcion de <span>"Link Type"</span> en esta seleccionaremos el modo que obtendra el puerto, la opcion para ponerlo en access es la que dice <span>"Access"</span>.</p>
+            <p>Luego tenemos la cansilla de <span>"Default VLAN"</span> en esta debemos seleccionar la vlan que le asignaremos al puerto.</p>
+            <p>Luego tenemos el boton de <span>"Auto-Negotiation"</span> que indicara si queremeos que el puerte negocie la velocidad automaticamente o queremos indicarle nosotros que velocidad va a manejar.</p>
+            <p>En la casilla de <span>"Interface Rate"</span> podremos indicar la velocidad del puerto en caso de que hayamos elegido seleccionarlo nosotros.</p>
+            <p>En la opcion de <span>"Duplex Mode"</span> tenemos la opcion de <span>"Full"</span> este permite que el trafico se trasmita en ambas direcciones, es decir puede enviar y recibir paquetes simultaneamente, permitiendo asi que no haya demoras en el trafico y evitando colisiones, esto es posible gracias al par trenzado de los cables Ethernet y debido a la inteligencia de los Switches que permiten recibir (RX) y trasmitir (TX) datos de forma independiente. La opcion de <span>"Half"</span> hace que el puerto solo funcione en una direccion, es decir no puede trasmitir y recibir al mismo tiempo. Cuando esta por enviar un paquete escucha y se fija que no se este usando, si el puerto esta en uso espera un tiempo aleatorio de tiempo y vuelve a intentarlo, esto genera demora en la red y colisiones.</p>
+            <p>El siguiente apartado es <span>"Jumbo"</span> esto indica tamaño maximo en byte que puede tener el paquete.</p>
+            <p>Luego esta el apartado de <span>"Description"</span> en este ingresaremos una descripcion breve sobre lo que conectaremos en ese puerto.</p>
+            <img src="img/configAcc4.png" alt="">
+            <p>Despues tenemos la opcion de <span>"MAC address flapping action"</span> en el podemos configurar lo que debe hacer el Switch cuando detecta el flapping de una MAC. Las opciones del mismo son <span>"Error-down"</span> que lo que hace es que cuando detecta un flapping apaga el puerto, y <span>"quit-vlan"</span>que lo que hace es que cuando detecta el flapping deja de aprender la direccion MAC en donde se genera el flap.</p>
+            <p>La otra opcion es <span>"VLAN/Maximum Number of Dynamic ARP Entries"</span> que es para limitar el numero maximo de asociaciones de ip a mac que va a establecer por vlan, esto se utiliza para evitar ataques de agotamiento de Tabla ARP, controlar los recursos del Switch y previsibilidad. Se recomienda la utilizacion para VLANs accesibles por usuarios no confiables, como redes de invitados, DMZs o redes de acceso publico.</p>
+            <p>Luego de todas de configurar todo debemos apretarl el boton de <span>"Apply"</span> que aparece abajo a la izquierda para aplicar la configuracion en el Switch.</p>
+            <img src="img/configAcc5.png" alt="">
+            <p>Aparecera una ventana emergente, le damos a <span>"Ok"</span>.</p>
+            <img src="img/configAcc6.png" alt="">
+            <p>Luego debemos ir al inicio de la pagina y tocar el boton de <span>"Save"</span> que aparece arriba a la derecha, esto guardara la configuracion del Switch.</p>
+            <img src="img/SavePag.png" alt="">
+            <p>Aparecera una ventana emergente le damos a <span>"Ok"</span>.</p>
+            <img src="img/OkSave.png" alt="">
+
+        </section>
+
+        <section id="Trunk">
+            <h2>Poner puerto en Trunk</h2>
+            <p>El modo Trunk permite transportar múltiples VLAN por un solo puerto, esto se utiliza cuando queremos conectar un dispositivo que deba tener varias interfaces de red en simultaneo, como los Switches, APs, Routers, etc.</p>
+            <p>Para configurarlo debemos ingresar a al Switch y tocar la opcion de <span>Configuration</span> que aparece arriba.</p>
+            <img src="img/configAcc.png" alt="">
+            <p>Luego debemos seleccionar la opcion de <span>"Basic Services"</span> en el lado izquierdo de la pagina, segunda opcion.</p>
+            <img src="img/configAcc2.png" alt="">
+            <p>Luego debemos elegir la primera opcion que aparece al desplegarse la opcion anterior y veremos todos los puertos que tiene el Switch y unos botones en la parte superior, de estos debemos seleccionar el que dice <span>"Customized"</span> para asi poder configurar el puerto.</p>
+            <img src="img/configAcc3.png" alt="">
+            <p>Una vez ingresado a dicha opcion seleccionamos el o los puertos que queremos configurar en Trunk y nos apareceran una opciones en la pantalla mas abajo.</p>
+            <p>Debemos verificar que la casilla que dice <span>"Enable link aggregation"</span> se encuentre destildada o tildada dependiendo si queremos que los puertos seleccionados funcionen como uno solo o como puertos individuales (la configuracion de puertos en conjunto esta en otro apartado).</p>
+            <p>La segunda opcion es <span>"Interface Status"</span> esto configura al puerto como apagado o prendido.</p>
+            <p>Luego tenemos la opcion de <span>"Work Mode"</span> esto indicara en que capa debe estar el puerto, en capa dos si esta como Switch o en capa 3 en caso de estar como Router.</p>
+            <p>Luego tenemos la opcion de <span>"Link Type"</span> en esta seleccionaremos el modo que obtendra el puerto, la opcion para ponerlo en troncal es la que dice <span>"Trunk"</span>.</p>
+            <p>Luego, en la seccion de <span>"Default VLAN"</span> debemos seleccionar la VLAN default que va a tener el puerto, esto va a indicar que interface de red manejara el puerto. En caso de no necesitar una VLAN de administracion para el puerto se deja en 1 ya que es obligatorio completarlo.</p>
+            <p>En el apartado de <span>"Pass VLAN(Tagged)"</span> debemos indicar todas las vlan que escuchara el puerto.</p>
+            <p>Luego tenemos el boton de <span>"Auto-Negotiation"</span> que indicara si queremeos que el puerte negocie la velocidad automaticamente o queremos indicarle nosotros que velocidad va a manejar.</p>
+            <p>En la casilla de <span>"Interface Rate"</span> podremos indicar la velocidad del puerto en caso de que hayamos elegido seleccionarlo nosotros.</p>
+            <p>En la opcion de <span>"Duplex Mode"</span> tenemos la opcion de <span>"Full"</span> este permite que el trafico se trasmita en ambas direcciones, es decir puede enviar y recibir paquetes simultaneamente, permitiendo asi que no haya demoras en el trafico y evitando colisiones, esto es posible gracias al par trenzado de los cables Ethernet y debido a la inteligencia de los Switches que permiten recibir (RX) y trasmitir (TX) datos de forma independiente. La opcion de <span>"Half"</span> hace que el puerto solo funcione en una direccion, es decir no puede trasmitir y recibir al mismo tiempo. Cuando esta por enviar un paquete escucha y se fija que no se este usando, si el puerto esta en uso espera un tiempo aleatorio de tiempo y vuelve a intentarlo, esto genera demora en la red y colisiones.</p>
+            <p>El siguiente apartado es <span>"Jumbo"</span> esto indica tamaño maximo en byte que puede tener el paquete.</p>
+            <p>Luego esta el apartado de <span>"Description"</span> en este ingresaremos una descripcion breve sobre lo que conectaremos en ese puerto.</p>
+            <p>Despues tenemos la opcion de <span>"MAC address flapping action"</span> en el podemos configurar lo que debe hacer el Switch cuando detecta el flapping de una MAC. Las opciones del mismo son <span>"Error-down"</span> que lo que hace es que cuando detecta un flapping apaga el puerto, y <span>"quit-vlan"</span>que lo que hace es que cuando detecta el flapping deja de aprender la direccion MAC en donde se genera el flap.</p>
+            <p>La otra opcion es <span>"VLAN/Maximum Number of Dynamic ARP Entries"</span> que es para limitar el numero maximo de asociaciones de ip a mac que va a establecer por vlan, esto se utiliza para evitar ataques de agotamiento de Tabla ARP, controlar los recursos del Switch y previsibilidad. Se recomienda la utilizacion para VLANs accesibles por usuarios no confiables, como redes de invitados, DMZs o redes de acceso publico.</p>
+            <p>Luego de todas de configurar todo debemos apretarl el boton de <span>"Apply"</span> que aparece abajo a la izquierda para aplicar la configuracion en el Switch.</p>
+            <img src="img/Trunk.png" alt="">
+            <p>Luego de todas de configurar todo debemos apretarl el boton de <span>"Apply"</span> que aparece abajo a la izquierda para aplicar la configuracion en el Switch.</p>
+            <img src="img/configAcc5.png" alt="">
+            <p>Aparecera una ventana emergente, le damos a <span>"Ok"</span>.</p>
+            <img src="img/configAcc6.png" alt="">
+            <p>Luego debemos ir al inicio de la pagina y tocar el boton de <span>"Save"</span> que aparece arriba a la derecha, esto guardara la configuracion del Switch.</p>
+            <img src="img/SavePag.png" alt="">
+            <p>Aparecera una ventana emergente le damos a <span>"Ok"</span>.</p>
+            <img src="img/OkSave.png" alt="">
+        </section>
+
+        <section id="LAG">
+            <h2>Realizar LAG</h2>
+            <p>Un LAG agrupa varios puertos físicos para mayor ancho de banda y redundancia.</p>
+            <p>Para configurarlo debemos ingresar a al Switch y tocar la opcion de <span>Configuration</span> que aparece arriba.</p>
+            <img src="img/configAcc.png" alt="">
+            <p>Luego debemos seleccionar la opcion de <span>"Basic Services"</span> en el lado izquierdo de la pagina, segunda opcion.</p>
+            <img src="img/configAcc2.png" alt="">
+            <p>Luego debemos elegir la primera opcion que aparece al desplegarse la opcion anterior y veremos todos los puertos que tiene el Switch y unos botones en la parte superior, de estos debemos seleccionar el que dice <span>"Customized"</span> para asi poder configurar el puerto.</p>
+            <img src="img/configAcc3.png" alt="">
+            <p>Una vez ingresado a dicha opcion seleccionamos los puertos que queremos configurar en LAG y nos apareceran una opciones en la pantalla mas abajo.</p>
+            <p>En la opcion de <span>"Enable link aggregation"</span> debemos tildar la casilla.</p>
+            <p>La segunda opcion es <span>"Interface Status"</span> esto configura al puerto como apagado o prendido.</p>
+            <p>Luego tenemos la opcion de <span>"Work Mode"</span> esto indicara en que capa debe estar el puerto, en capa dos si esta como Switch o en capa 3 en caso de estar como Router.</p>
+            <p>En la opcion de <span>"Load Balancing mode"</span> tenemos varias opciones para seleccionar. Primero debemos saber que en el Load Balancing el switch utiliza un algoritmo de hashing para decidir por cuál de los enlaces físicos del grupo debe viajar una conversación completa, debido a que no se puede divir un paquete entre todos los puertos que conforman el LAG ya que llegaria desordenado al destino.</p>
+            <ul><p>La primera opcion es <span>"dst-ip"</span> lo que hace esta opcion es calcular el hash con la IP de destino.</p></ul>
+            <ul><p>La segunda opcion es <span>"dst-mac"</span> esta realiza el calculo solo con la MAC de destino.</p></ul>
+            <ul><p>La tercera opcion es <span>"src-ip"</span> esta calcula el hash con la IP de origen.</p></ul>
+            <ul><p>La cuarta opcion es <span>"src-mac"</span> esta calcula el hash con la MAC de origen.</p></ul>
+            <ul><p>La quinta opcion es <span>"src-dst-ip"</span> Usa ambas IPs. Este es un modo muy común y recomendado. Proporciona una buena distribución si tienes muchos clientes diferentes (diferentes IP de origen) accediendo a uno o varios servidores (IP de destino).</p></ul>
+            <ul><p>La sexta opcion es <span>"src-dst-mac"</span> Usa ambas MACs. El problema es que si un router (MAC_Router) se comunica con un único servidor (MAC_Servidor), todas las conversaciones tendrán las mismas MACs de origen y destino. Como resultado, todo el tráfico usará un solo enlace del LAG, desperdiciando el resto. Es por eso que el balanceo de Capa 2 es poco utilizado en enlaces importantes.</p></ul>
+            <img src="img/LAG.png" alt="">
+            <p>En la casilla de <span>"Eth-Trunk"</span> debemos poner el numero del LAG que estamos generando, se recomienda que sea un numero descriptivo, por ejemplo el numero del puerto mas alto que tiene el LAG.</p>
+            <p>En la parte de <span>"Eth-Trunk Mode"</span> tenemos que seleccionar el modo del LAG.</p>
+            <ul><p>La primera opcion es <span>"Manual load balancing mode"</span> esto lo que hace es asignar conversaciones o flujos completos a un enlace físico específico dentro del LAG. Es decir, llega el trafico al puerto, se aplica el algoritmo de hash y seleccionar un purto fisico del LAG para enviar el paquete.</p></ul>
+            <ul><p>La segunda opcion es <span>"Static LACP"</span> lo que hace es crea el LAG de forma segura y automatica, verifica que todos los puertos del grupo se esten comunicando a cada segundo y reacciona de forma instantanea cuando uno de ellos falla para enviar los paquetes por alguno de los restantes.</p></ul>
+            <img src="img/LAG2.png" alt="">
+            <p>Luego tenemos la opcion de <span>"Link Type"</span> en esta podemos seleccionar el formato del puerto.</p>
+            <ul>La primera opcion <span>"Access"</span> pertenece a una sola VLAN, envia y recibe trafico sin etiquetar (untagged), esta diseñado para conectar dispositivos finales que no entienden de VLANs, como las PC, impresoras, etc.</ul>
+            <ul>La segunda opcion <span>"Trunk"</span> Puede trasporta trafico de multiples VLANs a la vez, envia y recibe trafico etiquetado (tagged), usando el estandar 802.1Q. cada trama lleva una etiqueta que dice a que VLAN pertence, puede tener una VLAN nativa, cuyo trafico viaja sin etiquetar. Esta diseñada para conectar switches entre si, o a routers y firewalls.</ul>
+            <ul>La tercera opcion <span>"Hybrid""</span> combina las características de un puerto de acceso (access) y un puerto troncal (trunk) y añade aún más flexibilidad. Te permite controlar, por cada VLAN, si el tráfico sale del puerto etiquetado (tagged) o sin etiquetar (untagged).</ul>
+            <img src="img/LAG3.png" alt="">
+            <p>En la casilla de <span>"Default VLAN"</span> debemos seleccionar la VLAN que se le asignara a los puertos marcados.</p>
+            <p>La casilla de <span>"Pass VLAN(Tagged)"</span> aparecera solo si seleccionamos que el puerto sea Trunk o Hybrid y debomos poner las VLANs que pasaran por el puerto.</p>
+            <p>Luego tenemos el boton de <span>"Auto-Negotiation"</span> que indicara si queremeos que el puerte negocie la velocidad automaticamente o queremos indicarle nosotros que velocidad va a manejar.</p>
+            <p>En la casilla de <span>"Interface Rate"</span> podremos indicar la velocidad del puerto en caso de que hayamos elegido seleccionarlo nosotros.</p>
+            <p>En la opcion de <span>"Duplex Mode"</span> tenemos la opcion de <span>"Full"</span> este permite que el trafico se trasmita en ambas direcciones, es decir puede enviar y recibir paquetes simultaneamente, permitiendo asi que no haya demoras en el trafico y evitando colisiones, esto es posible gracias al par trenzado de los cables Ethernet y debido a la inteligencia de los Switches que permiten recibir (RX) y trasmitir (TX) datos de forma independiente. La opcion de <span>"Half"</span> hace que el puerto solo funcione en una direccion, es decir no puede trasmitir y recibir al mismo tiempo. Cuando esta por enviar un paquete escucha y se fija que no se este usando, si el puerto esta en uso espera un tiempo aleatorio de tiempo y vuelve a intentarlo, esto genera demora en la red y colisiones.</p>
+            <p>El siguiente apartado es <span>"Jumbo"</span> esto indica tamaño maximo en byte que puede tener el paquete.</p>
+            <p>Luego esta el apartado es <span>"Description"</span> en este ingresaremos una descripcion breve sobre lo que conectaremos en ese puerto.</p>
+            <p>Despues tenemos la opcion de <span>"MAC address flapping action"</span> en el podemos configurar lo que debe hacer el Switch cuando detecta el flapping de una MAC. Las opciones del mismo son <span>"Error-down"</span> que lo que hace es que cuando detecta un flapping apaga el puerto, y <span>"quit-vlan"</span>que lo que hace es que cuando detecta el flapping deja de aprender la direccion MAC en donde se genera el flap.</p>
+            <p>La otra opcion es <span>"VLAN/Maximum Number of Dynamic ARP Entries"</span> que es para limitar el numero maximo de asociaciones de ip a mac que va a establecer por vlan, esto se utiliza para evitar ataques de agotamiento de Tabla ARP, controlar los recursos del Switch y previsibilidad. Se recomienda la utilizacion para VLANs accesibles por usuarios no confiables, como redes de invitados, DMZs o redes de acceso publico.</p>
+            <img src="img/LAG4.png" alt="">
+            <p>Luego de todas de configurar todo debemos apretarl el boton de <span>"Apply"</span> que aparece abajo a la izquierda para aplicar la configuracion en el Switch.</p>
+            <img src="img/configAcc5.png" alt="">
+            <p>Aparecera una ventana emergente, le damos a <span>"Ok"</span>.</p>
+            <img src="img/configAcc6.png" alt="">
+            <p>Luego debemos ir al inicio de la pagina y tocar el boton de <span>"Save"</span> que aparece arriba a la derecha, esto guardara la configuracion del Switch.</p>
+            <img src="img/SavePag.png" alt="">
+            <p>Aparecera una ventana emergente le damos a <span>"Ok"</span>.</p>
+            <img src="img/OkSave.png" alt="">
+        </section>
+    </main>
+
+    <footer>
+        <p>Hecho por Culen — Manual Huawei</p>
+    </footer>
+
+    <script src="scripts/scriptCore.js"></script>
+</body>
+</html>

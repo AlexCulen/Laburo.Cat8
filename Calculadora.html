@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculadora de IPs (IPv4)</title>
+    <link rel="stylesheet" href="style/styleCal.css" />
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="logo">IP</div>
+            <div>
+                <h1>Calculadora de IPs (IPv4)</h1>
+                <div class="pill">
+                    Ingresá <span class="kbd">192.168.10.5/24</span> o <span class="kbd">192.168.10.5 255.255.255.0</span>
+                </div>
+            </div>
+            <button id="toggleTheme" class="btn-tema" title="Cambiar tema">🌗</button>
+        </header>
+
+        <div class="panel">
+            <div class="section">
+                <div class="row">
+                    <div class="col">
+                        <label for="input">IP + máscara (CIDR o decimal)</label>
+                        <input id="input" type="text" placeholder="Ej: 10.0.1.37/22 ·· o ·· 10.0.1.37 255.255.252.0" />
+                        <div class="actions">
+                            <button id="calc">Calcular</button>
+                            <button id="demo" class="secondary">Ejemplos</button>
+                            <button id="clear" class="secondary">Borrar</button>
+                        </div>
+                        <div class="note">Se permiten /31 y /32. Para /31 se asume uso punto-a-punto (ambas direcciones son utilizables).</div>
+                        <div id="err" class="error" hidden></div>
+                    </div>
+                    <div class="col-status">
+                        <label>Estado</label>
+                        <div id="status" class="pill">Esperando datos…</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <dl id="results"></dl>
+                <details id="binary" hidden>
+                    <summary>Ver en binario</summary>
+                    <pre id="binOut"></pre>
+                </details>
+            </div>
+        </div>
+
+        <footer>
+            Hecho con ♥ por Alex. Tip: podés pegar directamente <span class="kbd">ip route</span> o valores con espacios.
+        </footer>
+    </div>
+
+    <script src="scripts/scriptCal.js"></script>
+</body>
+</html>

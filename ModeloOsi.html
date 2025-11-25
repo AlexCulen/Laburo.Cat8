@@ -1,0 +1,59 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Modelo OSI — Demo Interactiva</title>
+    <meta name="description" content="Página interactiva para aprender el modelo OSI con HTML, CSS y JavaScript." />
+    <link rel="stylesheet" href="style/styleModeloOsi.css">
+</head>
+<body>
+    <header>
+        <div class="wrap title">
+        <div>
+            <h1>Modelo OSI — Visual e interactivo</h1>
+            <small>Capas, PDU, ejemplos, protocolos y dispositivos.</small>
+        </div>
+        <button id="toggleTheme" class="btn" aria-pressed="false" title="Cambiar tema">🌗 Tema</button>
+        </div>
+    </header>
+
+    <main class="wrap" id="app" aria-live="polite">
+        <div class="row">
+            <section class="card">
+                <div class="hd">
+                    <div class="tools">
+                        <div class="input" role="search">
+                            <input id="q" type="search" placeholder="Buscar por capa, protocolo o dispositivo…" aria-label="Buscar en OSI" />
+                            <span class="icon">⌕</span>
+                        </div>
+                        <button id="expandAll" class="btn" title="Expandir todos">⤢ Expandir</button>
+                        <button id="collapseAll" class="btn" title="Contraer todos">⤡ Contraer</button>
+                        <span class="chip" id="count">7 capas</span>
+                    </div>
+                </div>
+                <div class="bd">
+                    <div class="legend" style="margin-bottom:10px">
+                        <span class="chip">PDU = Unidad de Datos de Protocolo</span>
+                        <span class="chip">Filtro activo: <span id="filterLabel">ninguno</span></span>
+                    </div>
+                    <div class="stack" id="stack"></div>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="hd">
+                    <strong>Detalle por capa</strong>
+                </div>
+                <div class="bd">
+                    <div class="grid" id="accordion"></div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <script src="scripts/scriptModeloOsi.js"></script>
+</body>
+</html>

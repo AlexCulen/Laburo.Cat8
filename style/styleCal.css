@@ -1,0 +1,179 @@
+:root {
+    --bg: #0f172a;
+    --panel: #111827ee;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #22d3ee;
+    --accent-2: #a78bfa;
+    --danger: #f43f5e;
+    --ok: #34d399;
+    --card: #0b1226;
+    --card-2: #141a33;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.light {
+    --bg: #f8fafc;
+    --panel: #ffffffcc;
+    --text: #0f172a;
+    --muted: #475569;
+    --accent: #0891b2;
+    --accent-2: #6d28d9;
+    --card: #ffffff;
+    --card-2: #f1f5f9;
+    --shadow: 0 12px 30px rgba(2, 6, 23, .08);
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+    background: radial-gradient(1200px 800px at 85% -10%, #164e63 0%, transparent 60%),
+                radial-gradient(1000px 700px at -10% 0%, #4c1d95 0%, transparent 55%),
+                var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    transition: background .3s, color .3s;
+}
+
+.wrap {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 24px;
+}
+
+/* === HEADER === */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 24px;
+    background: linear-gradient(90deg, var(--card), var(--card-2));
+    border-radius: 12px;
+    padding: 12px 20px;
+    box-shadow: var(--shadow);
+}
+.logo {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #001018;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+h1 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.06);
+    background: #0b1222;
+    color: var(--muted);
+    font-size: 12px;
+}
+.pill.ok { color: #052016; background: rgba(52,211,153,.12); border-color: rgba(52,211,153,.3); }
+.pill.bad { color: #2a0b11; background: rgba(244,63,94,.12); border-color: rgba(244,63,94,.3); }
+
+/* === Botón de tema === */
+.btn-tema {
+    border: 1px solid #ffffff26;
+    background: #00000030;
+    color: var(--text);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 6px 10px;
+    transition: 0.2s;
+    font-size: 1.2rem;
+}
+.btn-tema:hover { transform: scale(1.1); background: #00000040; }
+
+/* === PANEL === */
+.panel {
+    background: linear-gradient(180deg, var(--card), var(--card-2));
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255,255,255,.06);
+}
+.section { padding: 20px; }
+.section + .section { border-top: 1px solid rgba(255,255,255,.06); }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+.col { flex: 1 1 65%; }
+.col-status { flex: 1 1 30%; }
+
+/* === Inputs y botones === */
+label { display: block; margin-bottom: 6px; font-weight: 600; color: var(--text); }
+input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: #0b1222;
+    color: var(--text);
+    font-size: 1rem;
+}
+.actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+button {
+    border: 0;
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #001018;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: var(--shadow);
+    transition: transform .2s ease;
+}
+button:hover { transform: translateY(-2px); }
+button.secondary {
+    background: #0b1222;
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+/* === Resultado === */
+dl { display: grid; grid-template-columns: 200px 1fr; gap: 6px 20px; }
+dt { font-weight: 700; color: var(--accent); }
+dd { margin: 0; color: var(--text); }
+
+pre {
+    background: #0b1222;
+    padding: 14px;
+    border-radius: 12px;
+    color: var(--accent);
+    overflow-x: auto;
+}
+
+.note { font-size: 0.9rem; color: var(--muted); margin-top: 10px; }
+.error { color: var(--danger); font-weight: 700; margin-top: 10px; }
+
+/* === Footer === */
+footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 30px;
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+::-webkit-scrollbar-track { background: #00000030; }

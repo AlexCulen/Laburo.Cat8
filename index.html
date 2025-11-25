@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Redes</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Mera Solutions</div>
+        <div class="titulo">Manual Redes</div>
+        <div class="extra">
+            <button id="toggleTheme" class="btn-tema" title="Cambiar tema">🌗</button>
+            <span>Alex</span>
+        </div>
+    </header>
+
+    <hr class="separador">
+
+    <main class="contenedor">
+        <div class="desplegable-principal">
+            <button id="boton-categoria" class="desplegable-primario">
+                <span>Seleccione una categoría</span>
+                <span class="flecha">▼</span>
+            </button>
+            <div id="menu-categoria" class="menu-desplegable"></div>
+        </div>
+
+        <div class="desplegable-secundario">
+            <button id="boton-opciones" class="desplegable-sec">
+                <span>Seleccione un modelo</span>
+                <span class="flecha">▼</span>
+            </button>
+            <div id="menu-opciones" class="menu-desplegable-secundario"></div>
+        </div>
+
+        <div id="resultado-contenedor"></div>
+    </main>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
