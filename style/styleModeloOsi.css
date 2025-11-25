@@ -27,7 +27,7 @@
     --card: #ffffff;
     --card-2: #f1f5f9;
     --ring: #0891b24d;
-    --shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
+    --shadow: 0 12px 30px rgba(91, 101, 146, 0.08);
 }
 
 * { box-sizing: border-box; }
